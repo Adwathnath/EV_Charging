@@ -1,0 +1,52 @@
+{% extends 'index.html' %}
+{% block body %}
+<style>
+
+  .table{
+    width: 30%;
+  }
+ .table th{
+    align:left;
+  }
+
+
+</style>
+
+
+<body>
+<form id="form1" name="form1" method="post" action="logincode">
+  <div align="center">
+    <table width="200" border="0" class="table table-borderless">
+      <tr>
+        <td>Username:</td>
+        <td><label>
+          <input type="text" name="textfield" class="form-control"  required/>
+        </label></td>
+      </tr>
+      <tr>
+        <td>Password:</td>
+        <td><label>
+          <input type="password" name="textfield2"  class="form-control" required/>
+        </label></td>
+      </tr>
+      <tr align="center">
+        <td colspan="2"><label>
+          <div align="center">
+            <p>
+              <input type="submit" name="Submit" value="LOGIN" class="btn btn-success" />
+            </p>
+            {% if val=="no" %}
+            <p><a href="admin_registration">Admin sign up</a></p>
+            {% endif %}
+          </div>
+
+          <p>&nbsp;</p>
+        </label></td>
+
+      </tr>
+      </table>
+  </div>
+</form>
+</body>
+
+{% endblock %}

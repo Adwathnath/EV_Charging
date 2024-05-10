@@ -1,0 +1,45 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'admin_index.html' %}
+{% block body %}
+<body>
+
+<style>
+
+  .table{
+    width: 30%;
+  }
+ .table th{
+    align:left;
+  }
+
+
+</style>
+
+
+<form id="form1" name="form1" method="post" action="send_reply_code">
+  <div align="center">
+    <table width="200" border="0" class="table table-borderless">
+      <tr>
+        <th>Reply:</th>
+        <td><label>
+          <input type="text" name="textfield" class="form-control" required/>
+        </label></td>
+      </tr>
+      <tr align="center">
+        <td colspan="2"><label>
+          <div >
+            <input type="submit" name="Submit" value="Send" class="btn btn-success" />
+            </div>
+        </label></td>
+      </tr>
+      </table>
+  </div>
+</form>
+</body>
+{% endblock %}
+<!--</html>-->

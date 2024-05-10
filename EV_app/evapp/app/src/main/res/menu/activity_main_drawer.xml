@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/st"
+            android:title="Nearby stations" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/rest"
+            android:title="Nearby restaurant" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/feci"
+            android:title="View facilities" />
+        <item
+            android:id="@+id/bookslot"
+            android:icon="@drawable/book"
+            android:title="Booking Status" />
+        <item
+            android:id="@+id/rate"
+            android:icon="@drawable/rating"
+            android:title="Ratings" />
+        <item
+            android:id="@+id/camplaints"
+            android:icon="@drawable/cmp"
+            android:title="Complaints" />
+        <item
+            android:id="@+id/stss"
+            android:icon="@drawable/aaaaaa"
+            android:title="Stations" />
+        <item
+            android:id="@+id/logout"
+            android:icon="@drawable/lo"
+            android:title="Logout" />
+    </group>
+</menu>

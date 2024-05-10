@@ -1,0 +1,47 @@
+{% extends 'st_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="report_code#about">
+  <div align="center">
+    <table width="200" border="0" class="table table-striped table-hover">
+      <tr align="center">
+        <td>Month
+       <label>
+          <select name="select">
+            <option value="1" {% if mth=="1" %} selected {% endif %}>January</option>
+            <option value="2" {% if mth=="2" %} selected {% endif %}>February</option>
+            <option value="3" {% if mth=="3" %} selected {% endif %}>March</option>
+            <option value="4" {% if mth=="4" %} selected {% endif %}> April</option>
+            <option value="5" {% if mth=="5" %} selected {% endif %}>May</option>
+            <option value="6" {% if mth=="6" %} selected {% endif %}>June</option>
+            <option value="7" {% if mth=="7" %} selected {% endif %}>July</option>
+            <option value="8" {% if mth=="8" %} selected {% endif %}>Augest</option>
+            <option value="9" {% if mth=="9" %} selected {% endif %}>September</option>
+            <option value="10" {% if mth=="10" %} selected {% endif %}>October</option>
+            <option value="11" {% if mth=="11" %} selected {% endif %}>November</option>
+            <option value="12" {% if mth=="12" %} selected {% endif %}>December</option>
+          </select>
+        </label>
+        <label>
+          <input type="submit" name="Submit" value="Search" class="btn btn-info"/>
+        </label></td>
+      </tr>
+      </table>
+  </div>
+  <div align="center">
+    <table width="200" border="0" class="table table-striped table-hover">
+      <tr>
+        <td>Total amount </td>
+        <td>no.of booking </td>
+      </tr>
+      <tr>
+        <td>&nbsp;{{val[1]}}</td>
+        <td>&nbsp;{{val[0]}}</td>
+      </tr>
+      </table>
+  </div>
+  <p>&nbsp;</p>
+</form>
+</body>
+{% endblock %}

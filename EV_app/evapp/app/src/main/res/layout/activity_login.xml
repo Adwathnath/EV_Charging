@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".login"
+    android:background="@drawable/homii">
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_username"></ImageView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textStyle="bold"
+        android:textColor="@color/design_default_color_primary_dark"
+        android:textSize="30dp"
+        android:layout_marginBottom="50dp"/>
+
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/editTextTextPersonName11"
+            android:layout_width="match_parent"
+            android:layout_height="69dp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/ic_baseline_email_24"
+            android:drawablePadding="12dp"
+            android:ems="10"
+            android:hint="Username"
+            android:inputType="textPersonName"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            />
+    </TableRow>
+
+
+
+    <TableRow
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+
+        <EditText
+            android:id="@+id/editTextTextPassword4"
+            android:layout_width="match_parent"
+            android:layout_height="69dp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/ic_baseline_lock_24"
+            android:drawablePadding="12dp"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp" />
+    </TableRow>
+
+    <TableRow
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign in"
+            android:layout_marginBottom="10dp"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/textView31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign Up"
+            android:textColor="@color/design_default_color_primary_dark" />
+    </TableRow>
+</LinearLayout>

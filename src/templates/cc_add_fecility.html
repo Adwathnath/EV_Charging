@@ -1,0 +1,43 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+
+
+
+{% extends 'st_index.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="adding_feci#about">
+  <div align="center">
+    <table width="200" border="0" class="table table-striped table-hover">
+      <tr>
+        <td>Fecility</td>
+        <td>Description</td>
+        <td>Image</td>
+        <td>&nbsp;</td>
+      </tr>
+      {% for i in val %}
+      <tr>
+        <td>{{ i[2] }}</td>
+        <td>{{ i[3] }}&nbsp;</td>
+        <td>&nbsp;<img src="../static/ccfile/{{ i[4] }}" alt="" width="150px" height="150px"  />{{ i[4] }}</td>
+        <td><a href="feci_delete?id={{i[0]}}" class="btn btn-danger">Delete</a></td>
+      </tr>
+      {% endfor %}
+      <tr align="right">
+        <td colspan="4"><label>
+          <div align="center">
+            <input type="submit" name="Submit" value="Add" class="btn btn-success"/>
+            </div>
+        </label></td>
+      </tr>
+      </table>
+  </div>
+</form>
+</body>
+
+{% endblock %}
+<!--</html>-->
