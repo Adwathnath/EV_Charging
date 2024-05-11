@@ -1,15 +1,26 @@
+# Gradle related
+.gradle/
+build/
+app/build/
 *.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
+local.properties
+
+# Android Studio related
+.idea/
+
+# Gradle wrapper
+gradle/wrapper/gradle-wrapper.jar
+gradle/wrapper/gradle-wrapper.properties
+
+# Logs and temporary files
+hs_err_pid*.log
+replay_pid*.log
+
+# Ignore APK if not version controlling it
+app-debug.apk
+
+# other
 .DS_Store
-/build
 /captures
 .externalNativeBuild
 .cxx
-local.properties
