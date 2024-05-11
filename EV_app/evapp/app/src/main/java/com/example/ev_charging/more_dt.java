@@ -104,7 +104,7 @@ public class more_dt extends AppCompatActivity {
                                 try
                                 {
                                     RequestQueue queue = Volley.newRequestQueue(more_dt.this);
-                                    url = "http://" + sp .getString("ip","") + ":5000/cancel_booking";
+                                    url = "http://" + sp .getString("ip","") + ":5000/android/cancel_booking";
 
                                     // Request a string response from the provided URL.
                                     StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {

@@ -59,8 +59,8 @@ String url;
 
                 else {
                     RequestQueue queue = Volley.newRequestQueue(login.this);
-                    url = "http://" + sh.getString("ip", "") + ":5000/logincode";
-
+                    url = "http://" + sh.getString("ip", "") + ":5000/android/user-login";
+                    Log.d("Request URL", "URL: " + url);
                     // Request a string response from the provided URL.
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                         @Override
@@ -101,9 +101,8 @@ String url;
                     }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-
-
                             Toast.makeText(getApplicationContext(), "Error" + error, Toast.LENGTH_LONG).show();
+                            Log.e("Volley Error", error.getMessage());
                         }
                     }) {
                         @Override

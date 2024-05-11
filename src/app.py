@@ -2,11 +2,14 @@ import os
 
 from flask import *
 from werkzeug.utils import secure_filename
+from android import android_bp
 
 app=Flask(__name__)
 from DBConnection import *
 app.secret_key='aaa'
 
+# Register the Android Blueprint with the URL prefix '/android'
+app.register_blueprint(android_bp, url_prefix='/android')
 
 
 @app.route('/')
@@ -27,6 +30,7 @@ def logincode():
     qry="select * from user where email=%s and password=%s and type='admin'"
     val=(uname,pswd)
     res=selectone(qry,val)
+    print("response----",res)
     if res is None:
         qry="SELECT * FROM `station` WHERE `email`=%s AND `password`=%s and status='cc'"
         res=selectone(qry,val)

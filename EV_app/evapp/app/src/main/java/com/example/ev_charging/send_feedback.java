@@ -57,7 +57,7 @@ SharedPreferences sh;
                 {
 
                 RequestQueue queue = Volley.newRequestQueue(send_feedback.this);
-                url = "http://" + sh.getString("ip","") + ":5000/sent_feedback";
+                url = "http://" + sh.getString("ip","") + ":5000/android/sent_feedback";
 
                 // Request a string response from the provided URL.
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {

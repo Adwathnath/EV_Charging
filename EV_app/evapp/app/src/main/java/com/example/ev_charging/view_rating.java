@@ -42,7 +42,7 @@ public class view_rating extends AppCompatActivity implements AdapterView.OnItem
         l1=findViewById(R.id.lv22);
         sp= PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
-        url = "http://" + sp.getString("ip", "") + ":5000/view_rating";
+        url = "http://" + sp.getString("ip", "") + ":5000/android/view_rating";
         RequestQueue queue = Volley.newRequestQueue(view_rating.this);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {

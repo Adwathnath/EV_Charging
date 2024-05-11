@@ -50,7 +50,7 @@ public class view_fecility extends AppCompatActivity implements AdapterView.OnIt
         sh= PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         RequestQueue queue = Volley.newRequestQueue(view_fecility.this);
 
-        url ="http://"+sh.getString("ip","")+":5000/view_station";
+        url ="http://"+sh.getString("ip","")+":5000/android/view_station";
         s1.setOnItemSelectedListener(view_fecility.this);
 
 
@@ -111,7 +111,7 @@ public class view_fecility extends AppCompatActivity implements AdapterView.OnIt
             StrictMode.ThreadPolicy policy=new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
-        url ="http://"+sh.getString("ip", "") + ":5000/view_fecilites";
+        url ="http://"+sh.getString("ip", "") + ":5000/android/view_fecilites";
         RequestQueue queue1 = Volley.newRequestQueue(view_fecility.this);
 
         StringRequest stringRequest1 = new StringRequest(Request.Method.POST, url,new Response.Listener<String>() {

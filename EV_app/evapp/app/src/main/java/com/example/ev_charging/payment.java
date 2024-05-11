@@ -64,7 +64,7 @@ String url;
 
 
                 RequestQueue queue = Volley.newRequestQueue(payment.this);
-                url = "http://" + sh.getString("ip","") + ":5000/payment";
+                url = "http://" + sh.getString("ip","") + ":5000/android/payment";
 
                 // Request a string response from the provided URL.
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {

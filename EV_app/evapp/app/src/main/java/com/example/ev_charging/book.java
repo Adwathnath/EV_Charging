@@ -101,7 +101,7 @@ public class book extends AppCompatActivity {
 
                 String amt = "145";
                 RequestQueue queue = Volley.newRequestQueue(book.this);
-                url = "http://" + sh.getString("ip","") + ":5000/book_slot";
+                url = "http://" + sh.getString("ip","") + ":5000/android/book_slot";
 
                 // Request a string response from the provided URL.
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -161,7 +161,7 @@ public class book extends AppCompatActivity {
 //
 //
 //                RequestQueue queue = Volley.newRequestQueue(book.this);
-//                url = "http://" + sh.getString("ip","") + ":5000/book_slot";
+//                url = "http://" + sh.getString("ip","") + ":5000/android/book_slot";
 //
 //                // Request a string response from the provided URL.
 //                StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {

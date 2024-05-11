@@ -50,7 +50,7 @@ public class send_complaint extends AppCompatActivity implements AdapterView.OnI
         sh= PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
         RequestQueue queue = Volley.newRequestQueue(send_complaint.this);
-        url = "http://" + sh.getString("ip", "") + ":5000/view_station";
+        url = "http://" + sh.getString("ip", "") + ":5000/android/view_station";
         s1.setOnItemSelectedListener(send_complaint.this);
 
 
@@ -112,7 +112,7 @@ public class send_complaint extends AppCompatActivity implements AdapterView.OnI
 
 
                 RequestQueue queue = Volley.newRequestQueue(send_complaint.this);
-                url = "http://" + sh.getString("ip","") + ":5000/add_complaint";
+                url = "http://" + sh.getString("ip","") + ":5000/android/add_complaint";
 
                 // Request a string response from the provided URL.
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {

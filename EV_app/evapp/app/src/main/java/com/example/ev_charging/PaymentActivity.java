@@ -170,7 +170,7 @@ public class PaymentActivity extends Activity implements PaymentResultWithDataLi
             String ip= sh.getString("ip","");
 
             RequestQueue queue = Volley.newRequestQueue(PaymentActivity.this);
-            String url = "http://" + ip + ":5000/payment";
+            String url = "http://" + ip + ":5000/android/payment";
 
             // Request a string response from the provided URL.
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {

@@ -38,7 +38,7 @@ SharedPreferences sh;
         l1=findViewById(R.id.l2);
         sh= PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
-        url ="http://"+sh.getString("ip", "") + ":5000/view_book_sts";
+        url ="http://"+sh.getString("ip", "") + ":5000/android/view_book_sts";
         RequestQueue queue = Volley.newRequestQueue(view_booking_status.this);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,new Response.Listener<String>() {

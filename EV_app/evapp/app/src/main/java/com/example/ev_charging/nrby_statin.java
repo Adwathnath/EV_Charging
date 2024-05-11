@@ -46,7 +46,7 @@ public class nrby_statin extends AppCompatActivity implements AdapterView.OnItem
         String longi=LocationService.logi;
         sh = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
-        url = "http://" + sh.getString("ip", "") + ":5000/view_nrby_station";
+        url = "http://" + sh.getString("ip", "") + ":5000/android/view_nrby_station";
         RequestQueue queue = Volley.newRequestQueue(nrby_statin.this);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {

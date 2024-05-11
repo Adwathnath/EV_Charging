@@ -1,24 +1,8 @@
 package com.example.ev_charging;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
-
-//import org.apache.http.NameValuePair;
-//import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Service;
@@ -56,7 +40,7 @@ public class LocationService extends Service{
     SharedPreferences sh;
 
     String imei = "",url="";
-   
+
     LocationListener locationListener = new LocationListener()
     {
         public void onLocationChanged(Location location)
@@ -78,11 +62,12 @@ public class LocationService extends Service{
             latitude=String.valueOf(curLocation.getLatitude());
             longitude=String.valueOf(curLocation.getLongitude());
 
-//            updatelocation(latitude,longitude);
+            updatelocation(latitude,longitude);
 
             if (locationChanged)
                 locationManager.removeUpdates(locationListener);
         }
+
         public void onProviderDisabled(String provider)
         {
         }
@@ -283,7 +268,7 @@ public class LocationService extends Service{
         sh=PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
        
 //        RequestQueue queue = Volley.newRequestQueue(LocationService.this);
-//         url = "http://" + sh.getString("ip","") + ":5000/getlocation";
+//         url = "http://" + sh.getString("ip","") + ":5000/android/getlocation";
 //
 //        // Request a string response from the provided URL.
 //        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
