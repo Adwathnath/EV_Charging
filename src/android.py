@@ -2,13 +2,11 @@ import os
 
 from flask import *
 from werkzeug.utils import secure_filename
-
-app=Flask(__name__)
 from DBConnection import *
-app.secret_key='aaa'
 
+android_bp = Blueprint('android', __name__)
 
-@app.route('/logincode',methods=['post'])
+@android_bp.route('/user-login',methods=['post'])
 def logincode():
     print (request.form)
     uname=request.form['uname']
@@ -16,7 +14,6 @@ def logincode():
     qry="select * from user where email=%s and password=%s and type='user'"
     val=(uname,pswd)
     res=selectone(qry,val)
-    print(res)
     if res is None:
         return jsonify({'task':'invalid'})
 
@@ -26,7 +23,7 @@ def logincode():
 
 
 
-@app.route('/user_registration',methods=['post'])
+@android_bp.route('/user_registration',methods=['post'])
 def user_registration():
     f_name = request.form['fname']
     l_name = request.form['lname']
@@ -50,7 +47,7 @@ def user_registration():
 
 
 
-@app.route('/view_nrby_station',methods=['post'])
+@android_bp.route('/view_nrby_station',methods=['post'])
 def view_nrby_station():
     print(request.form)
     lati=request.form['lati']
@@ -62,7 +59,7 @@ def view_nrby_station():
     return jsonify(res)
 
 
-@app.route('/view_nrby_resto',methods=['post'])
+@android_bp.route('/view_nrby_resto',methods=['post'])
 def view_nrby_resto():
     print(request.form)
     lati = request.form['lati']
@@ -74,7 +71,7 @@ def view_nrby_resto():
     return jsonify(res)
 
 
-@app.route('/view_fecilites',methods=['post'])
+@android_bp.route('/view_fecilites',methods=['post'])
 def view_fecilites():
     sid=request.form['cid']
     print(sid)
@@ -84,7 +81,7 @@ def view_fecilites():
     return jsonify(res)
 
 
-@app.route('/view_rating',methods=['post'])
+@android_bp.route('/view_rating',methods=['post'])
 def view_rating():
     q="SELECT `feedback`.`feedback`,AVG(`rating`)AS r,`station`.name,`station`.s_id,`station`.place,`station`.phone,`station`.email,`station`.image FROM `station` JOIN `feedback` ON `feedback`.`s_id`=`station`.s_id GROUP BY `feedback`.`s_id` ORDER BY r DESC"
     res=androidselectallnew(q)
@@ -92,7 +89,7 @@ def view_rating():
     return jsonify(res)
 
 
-@app.route('/view_station',methods=['post'])
+@android_bp.route('/view_station',methods=['post'])
 def view_station():
 
 
@@ -104,7 +101,7 @@ def view_station():
 
 
 
-@app.route('/view_cc',methods=['post'])
+@android_bp.route('/view_cc',methods=['post'])
 def view_cc():
     place=request.form['place']
     print(place,"jhhhhhhhhhhhh")
@@ -115,14 +112,14 @@ def view_cc():
     return jsonify(res)
 
 
-@app.route('/view_rate_info',methods=['post'])
+@android_bp.route('/view_rate_info',methods=['post'])
 def view_rate_info():
     q=""
     res=androidselectall(q)
     return jsonify(res)
 
 
-@app.route('/book_slot',methods=['post'])
+@android_bp.route('/book_slot',methods=['post'])
 def book_slot():
     s_id = request.form['s_id']
     # u_id = request.form['u_id']
@@ -151,7 +148,7 @@ def book_slot():
 
 
 
-# @app.route('/book_slot',methods=['post'])
+# @android_bp.route('/book_slot',methods=['post'])
 # def book_slot():
 #     s_id = request.form['s_id']
 #     u_id = request.form['u_id']
@@ -184,7 +181,7 @@ def book_slot():
 
 
 
-@app.route('/view_book_sts',methods=['post'])
+@android_bp.route('/view_book_sts',methods=['post'])
 def view_book_sts():
     u_id = request.form['u_id']
     q= " SELECT `booking`.*,`station`.* ,booking.status bstat FROM `booking` JOIN `station` ON `booking`.`s_id`=`station`.`s_id` WHERE `booking`.`u_id`=%s order by date DESC "
@@ -193,7 +190,7 @@ def view_book_sts():
     return jsonify(res)
 
 
-@app.route('/add_complaint',methods=['post'])
+@android_bp.route('/add_complaint',methods=['post'])
 def add_complaint():
     sid=request.form['sid']
     uid=request.form['lid']
@@ -203,14 +200,14 @@ def add_complaint():
     iud(q, val)
     return jsonify({'task': 'valid'})
 
-@app.route('/view_reply',methods=['post'])
+@android_bp.route('/view_reply',methods=['post'])
 def view_reply():
     lid=request.form['lid']
     q="SELECT `complaint`.*,`station`.`name` FROM `complaint` JOIN `station` ON `complaint`.`s_id`=`station`.`s_id` WHERE `complaint`.`u_id`=%s"
     res=androidselectall(q,lid)
     return jsonify(res)
 
-@app.route('/viewplace',methods=['post'])
+@android_bp.route('/viewplace',methods=['post'])
 def viewplace():
 
     q="SELECT  DISTINCT `place` FROM `station`"
@@ -220,7 +217,7 @@ def viewplace():
 
 
 
-@app.route('/sent_feedback',methods=['post'])
+@android_bp.route('/sent_feedback',methods=['post'])
 def sent_feedback():
     feedback = request.form['feedback']
     rating = request.form['rating']
@@ -231,7 +228,7 @@ def sent_feedback():
     iud(q, val)
     return jsonify({'task': 'valid'})
 
-@app.route('/payment',methods=['post'])
+@android_bp.route('/payment',methods=['post'])
 def payment():
     amt=request.form['amt']
     lid=request.form['u_id']
@@ -267,7 +264,7 @@ def payment():
     return jsonify({'task': 'success'})
 
 
-@app.route('/cancel_booking',methods=['post'])
+@android_bp.route('/cancel_booking',methods=['post'])
 def cancel_booking():
     b_id=request.form['bid']
     q= "update booking set status='cancelled' where b_id=%s"
@@ -284,7 +281,7 @@ def cancel_booking():
 
 
 
-@app.route("/alertnoti",methods=['post'])
+@android_bp.route("/alertnoti",methods=['post'])
 def alertnoti():
     lid=request.form['uid']
     qry="SELECT * FROM `booking` WHERE `u_id`=%s AND `status`='reject'"
@@ -295,7 +292,7 @@ def alertnoti():
         iud(qry,i['b_id'])
     return jsonify(res)
 
-@app.route("/currentbooking",methods=['post'])
+@android_bp.route("/currentbooking",methods=['post'])
 def currentbooking():
     print(request.form)
     sid=request.form['sid']
@@ -310,7 +307,4 @@ def currentbooking():
 
 
 
-
-
-
-app.run(host='0.0.0.0',port=5000)
+# app.run(host='0.0.0.0',port=5000)
