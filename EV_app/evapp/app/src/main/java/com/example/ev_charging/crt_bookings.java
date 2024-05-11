@@ -94,7 +94,7 @@ public class crt_bookings extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 da=e.getText().toString();
-                url ="http://"+sh.getString("ip", "") + ":5000/currentbooking";
+                url ="http://"+sh.getString("ip", "") + ":5000/android/currentbooking";
                 RequestQueue queue = Volley.newRequestQueue(crt_bookings.this);
 
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url,new Response.Listener<String>() {

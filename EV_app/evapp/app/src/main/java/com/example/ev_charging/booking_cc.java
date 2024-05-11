@@ -40,7 +40,7 @@ public class booking_cc extends AppCompatActivity implements AdapterView.OnItemC
 
         l1=findViewById(R.id.listview1);
         sh= PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        url ="http://"+sh.getString("ip", "") + ":5000/view";
+        url ="http://"+sh.getString("ip", "") + ":5000/android/view";
         RequestQueue queue = Volley.newRequestQueue(booking_cc.this);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,new Response.Listener<String>() {

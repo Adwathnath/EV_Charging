@@ -51,7 +51,7 @@ public class place_st extends AppCompatActivity implements AdapterView.OnItemSel
 
         RequestQueue queue = Volley.newRequestQueue(place_st.this);
 
-        url ="http://"+sh.getString("ip","")+":5000/viewplace";
+        url ="http://"+sh.getString("ip","")+":5000/android/viewplace";
         s1.setOnItemSelectedListener(place_st.this);
 
 
@@ -110,7 +110,7 @@ public class place_st extends AppCompatActivity implements AdapterView.OnItemSel
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 //        place=cname.get(i);
-        url1 = "http://" + sh.getString("ip", "") + ":5000/view_cc";
+        url1 = "http://" + sh.getString("ip", "") + ":5000/android/view_cc";
         RequestQueue queue1 = Volley.newRequestQueue(place_st.this);
 
         StringRequest stringRequest1 = new StringRequest(Request.Method.POST, url1, new Response.Listener<String>() {

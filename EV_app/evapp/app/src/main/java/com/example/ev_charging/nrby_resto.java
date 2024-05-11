@@ -38,7 +38,7 @@ public class nrby_resto extends AppCompatActivity {
         ls1=findViewById(R.id.rest);
         sh = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
-        url = "http://" + sh.getString("ip", "") + ":5000/view_nrby_resto";
+        url = "http://" + sh.getString("ip", "") + ":5000/android/view_nrby_resto";
         RequestQueue queue = Volley.newRequestQueue(nrby_resto.this);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {

@@ -126,7 +126,7 @@ public class Notify extends Service  {
 
     void getNotification() {
         RequestQueue queue = Volley.newRequestQueue(Notify.this);
-        String url = "http://" + sh.getString("ip", "")+ ":5000/alertnoti";
+        String url = "http://" + sh.getString("ip", "")+ ":5000/android/alertnoti";
         Toast.makeText(getApplicationContext(), url, Toast.LENGTH_LONG).show();
         // Request a string response from the provided URL.
 

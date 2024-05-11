@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                     RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
-                    url = "http://" + sh.getString("ip", "") + ":5000/user_registration";
+                    url = "http://" + sh.getString("ip", "") + ":5000/android/user_registration";
 
                     // Request a string response from the provided URL.
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
