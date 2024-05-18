@@ -310,13 +310,13 @@ def view_CC_fecility_code():
 
 @app.route('/View_complaint')
 def View_complaint():
-    qry = " SELECT complaint.*,user.f_name,l_name,station.name FROM complaint JOIN USER ON user.u_id=complaint.u_id JOIN station ON station.s_id=complaint.s_id WHERE complaint.reply='pending' "
+    qry = " SELECT complaint.*,user.f_name,l_name,station.name FROM complaint JOIN user ON user.u_id=complaint.u_id JOIN station ON station.s_id=complaint.s_id WHERE complaint.reply='pending' "
     res = select(qry)
     return  render_template('View_complaint.html',val=res)
 
 @app.route('/view_feedback')
 def view_feedback():
-    qry ="SELECT feedback.*,user.f_name,l_name,station.name FROM feedback JOIN USER ON user.u_id=feedback.u_id JOIN station ON station.s_id=feedback.s_id  "
+    qry ="SELECT feedback.*,user.f_name,l_name,station.name FROM feedback JOIN user ON user.u_id=feedback.u_id JOIN station ON station.s_id=feedback.s_id  "
     res = select(qry)
     return  render_template('view_feedback.html',val=res)
 
