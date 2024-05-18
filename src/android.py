@@ -83,8 +83,33 @@ def view_fecilites():
 
 @android_bp.route('/view_rating',methods=['post'])
 def view_rating():
-    q="SELECT `feedback`.`feedback`,AVG(`rating`)AS r,`station`.name,`station`.s_id,`station`.place,`station`.phone,`station`.email,`station`.image FROM `station` JOIN `feedback` ON `feedback`.`s_id`=`station`.s_id GROUP BY `feedback`.`s_id` ORDER BY r DESC"
-    res=androidselectallnew(q)
+    q = """
+    SELECT 
+        feedback.feedback, 
+        AVG(rating) AS avg_rating, 
+        station.name, 
+        station.s_id, 
+        station.place, 
+        station.phone, 
+        station.email, 
+        station.image 
+    FROM 
+        station 
+    JOIN 
+        feedback ON feedback.s_id = station.s_id 
+    GROUP BY 
+        feedback.feedback, 
+        station.name, 
+        station.s_id, 
+        station.place, 
+        station.phone, 
+        station.email, 
+        station.image
+    ORDER BY 
+        avg_rating DESC
+    """
+
+    res = androidselectallnew(q)
     print(res)
     return jsonify(res)
 
