@@ -18,8 +18,7 @@ def logincode():
         return jsonify({'task':'invalid'})
 
     else:
-        return jsonify({'task': 'valid','id':res[0] ,'name':res[1],'email':res[9]} )
-
+        return jsonify({'task': 'valid','id':res[0] ,'name':res[1],'email':res[9]})
 
 
 
@@ -41,8 +40,6 @@ def user_registration():
     val = (f_name, l_name, h_name, place, post, pin, district, gender, email, phone, password)
     iud(q,val)
     return jsonify({'task': 'success'})
-
-
 
 
 
@@ -280,7 +277,6 @@ def cancel_booking():
 
 
 
-
 @android_bp.route("/alertnoti",methods=['post'])
 def alertnoti():
     lid=request.form['uid']
@@ -303,8 +299,3 @@ def currentbooking():
     print("jhj",res)
     return jsonify(res)
 
-
-
-
-
-# app.run(host='0.0.0.0',port=5000)
